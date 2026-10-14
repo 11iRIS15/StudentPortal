@@ -1,182 +1,66 @@
-> **📝 This README is a template.**
-> 1. Replace every `[bracketed placeholder]` with your group's information.
-> 2. Hints are hidden in comments. Open this file in your code editor (not on GitHub) to see them.
-> 3. Delete each hint once you fill in its section. **Delete this box when you're done.**
->
-> Owner: the **Documentation** member. Everyone gives input.
+# Documentation
 
-# [Module Name] — College Management System
+This folder explains the project. The code shows **how** things work. These docs explain **what** the system is, **why** it was built this way, and **how it connects** to other modules.
 
-<!-- HINT: One sentence. What does your module do, and who is it for?
-     Example: "The Library module lets students search, borrow, and return books, and lets librarians manage the catalog." -->
+**Owner:** the Documentation member. **Everyone contributes:** whoever builds something writes a first draft or tells the Documentation member what changed, and the Documentation member cleans it up and keeps it current.
 
-[One-sentence description of your module.]
+## What's in this folder
 
-## About the Module
+| File | Question it answers | Main source of information |
+|------|---------------------|----------------------------|
+| [architecture.md](architecture.md) | How is our module put together? | Backend + Frontend |
+| [data-model.md](data-model.md) | What data do we store, and how is it related? | Backend |
+| [integration.md](integration.md) | How does our module work with the other modules? | Backend |
+| [design-system.md](design-system.md) | What does our UI look like, and what are the rules? | Frontend |
+| [decisions/](decisions/) | Why did we choose X over Y? | Whoever made the decision |
+| [../server/openapi.yaml](../server/openapi.yaml) | What endpoints exist? (the API contract) | Backend |
 
-<!-- HINT: 2–4 sentences. What problem does this module solve? Why does the college need it? -->
+Each file is a template. Fill in the `[bracketed placeholders]`, follow the hidden hint comments (open the file in your editor to see them), then delete the hints.
 
-[Short description.]
+## When do I need to write documentation?
 
-### Users
+Use this table. If you did something in the left column, update the doc in the right column **in the same pull request**.
 
-<!-- HINT: Who uses this module and what do they do in it? Delete rows that don't apply, add rows if needed. -->
+| If you... | Update... |
+|-----------|-----------|
+| Added, removed, or changed an endpoint (path, fields, status codes) | `server/openapi.yaml`, **before** writing the code |
+| Chose a framework, library, database, or approach over other options | A new ADR in `decisions/` |
+| Added or changed a piece of data (e.g., a new `dueDate` field on a loan) | `data-model.md` |
+| Need data from another module, or another module needs data from you | `integration.md` (and tell that group) |
+| Added a new color, font, component, or UI pattern | `design-system.md` |
+| Added a new part of the system (new folder, new layer, new external service) | `architecture.md` |
+| Changed how to install or run the project, or added an environment variable | Root `README.md` (Getting Started) and the `.env.example` file |
+| Finished a feature | Tick it off in the root `README.md` feature list |
+| Fixed a small bug, renamed a variable, or changed one button's style | Nothing. The commit message is enough |
 
-| User | What they do in this module |
-|------|-----------------------------|
-| Student | [e.g., view their balance, request a clearance] |
-| Faculty | [...] |
-| Staff / Admin | [...] |
+### Still not sure? Ask these 3 questions
 
-### Features
+1. **Would a new teammate have to ask someone to understand this?** If yes, document it.
+2. **Will someone later ask "why did you do it this way?"** If yes, write an ADR.
+3. **Does it affect another group member or another module?** If yes, document it **and** tell them.
 
-<!-- HINT: List the main features. Each feature must have at least one endpoint in server/openapi.yaml.
-     Tick a box when the feature is done: - [x] -->
+If all three answers are "no", you probably don't need to write docs.
 
-- [ ] [Feature 1]
-- [ ] [Feature 2]
-- [ ] [Feature 3]
+## Rules for good docs
 
-## Part of the College Management System
+- **Write for a classmate who missed the last three meetings.** Use short sentences and no inside jokes.
+- **Docs change with the code.** Outdated docs are worse than no docs. A pull request that changes behavior is not finished until the docs match.
+- **Link instead of copying.** Endpoint details live only in `openapi.yaml`. Other docs link to it instead of repeating it.
+- **Show, don't just tell.** Use tables, diagrams, examples, and screenshots.
+- **No leftover template text.** If a section doesn't apply yet, write "Not applicable yet, planned for finals" instead of leaving the placeholder.
 
-This module is one of eight modules that together make up the College Management System.
+## Diagrams and images
 
-| Module | This repo |
-|--------|:---------:|
-| Landing Page | |
-| Library | |
-| Student Portal | |
-| Finance | |
-| Faculty | |
-| Clinic | |
-| Registrar | |
-| Inventory | |
+- **Prefer Mermaid diagrams.** They are written as text inside the Markdown file, GitHub shows them as pictures, and they are easy to update. Try them at <https://mermaid.live>. In VS Code, install the "Markdown Preview Mermaid Support" extension to preview them.
+- **Screenshots and other images** go in `docs/images/` (create the folder when you need it). Link them like this: `![Login screen](images/login.png)`.
 
-<!-- HINT: Put ✅ in the "This repo" column next to your module. -->
+## Checklist before each presentation (Documentation member)
 
-How this module connects to the other modules: [docs/integration.md](docs/integration.md).
-
-## Team
-
-<!-- HINT: One row per member. If your group has more than three members, add rows. Two people can share a role. -->
-
-| Name | Role | GitHub |
-|------|------|--------|
-| [Full Name] | Backend | [@username] |
-| [Full Name] | Frontend | [@username] |
-| [Full Name] | Documentation | [@username] |
-
-**Roles:** Backend owns `server/` and the API contract. Frontend owns `client/`. Documentation owns `docs/`, this README, and the instructor's handout (the handout is submitted separately, not in this repo).
-
-## Tech Stack
-
-<!-- HINT: Write the actual technology and version. Explain WHY you chose it in docs/decisions/ (an ADR). -->
-
-| Part | Technology |
-|------|------------|
-| Frontend (client) | [e.g., React + Vite] |
-| Backend (server) | [e.g., FastAPI on Python 3.12] |
-| API documentation | OpenAPI 3.0 + Swagger UI |
-| Database | None yet (mock data). Planned: [e.g., PostgreSQL] |
-
-## Project Structure
-
-```
-.
-├── client/            # Frontend app. See client/README.md
-├── server/            # Backend API. See server/README.md
-│   └── openapi.yaml   # API contract: the list of every endpoint
-├── docs/              # Project documentation. Start at docs/README.md
-├── CONTRIBUTING.md    # How we use Git as a group
-└── README.md          # You are here
-```
-
-## Getting Started
-
-<!-- HINT: Test this section! A classmate should be able to run your project by following ONLY these steps
-     on a fresh clone. Replace the example commands with the real ones for YOUR stack. -->
-
-### Prerequisites
-
-- [e.g., Node.js 22 or newer / Python 3.12 or newer / .NET 9 SDK]
-- Git
-
-### 1. Clone the repo
-
-```bash
-git clone [repo-url]
-cd [repo-folder]
-```
-
-### 2. Run the server
-
-```bash
-cd server
-[copy the env file, e.g., cp .env.example .env]
-[install, e.g., npm install  OR  pip install -r requirements.txt]
-[run, e.g., npm run dev  OR  fastapi dev src/main.py --port 8000]
-```
-
-- API: `http://localhost:[port]/api/v1`
-- Swagger UI: `http://localhost:[port]/docs`
-
-### 3. Run the client
-
-```bash
-cd client
-[copy the env file, e.g., cp .env.example .env]
-[install, e.g., npm install]
-[run, e.g., npm run dev]
-```
-
-- App: `http://localhost:[port]`
-
-### Environment variables
-
-<!-- HINT: List every variable from server/.env.example and client/.env.example.
-     Use example values only. Never put real passwords or keys in this file. -->
-
-| Variable | Where | Example | What it's for |
-|----------|-------|---------|---------------|
-| `PORT` | server | `8000` | Port the API runs on |
-| `CORS_ORIGINS` | server | `http://localhost:5173` | Frontend URLs allowed to call the API |
-| `VITE_API_BASE_URL` | client | `http://localhost:8000/api/v1` | Where the frontend sends API requests |
-
-## API Documentation
-
-- **Swagger UI:** `http://localhost:[port]/docs` (start the server first)
-- **API contract:** [server/openapi.yaml](server/openapi.yaml)
-
-## Documentation
-
-| Document | What's inside |
-|----------|---------------|
-| [Architecture](docs/architecture.md) | How the parts of the system fit together |
-| [Data Model](docs/data-model.md) | The data we store and how it's related |
-| [Integration](docs/integration.md) | How this module works with the other modules |
-| [Design System](docs/design-system.md) | Colors, fonts, components, UI rules |
-| [Decisions](docs/decisions/) | Why we chose our tools and approaches |
-
-## Project Status
-
-<!-- HINT: Update this before each presentation. -->
-
-### Midterm
-
-- [ ] API contract (`server/openapi.yaml`) complete and has no validation errors
-- [ ] Every endpoint in the contract works with mock data (no database yet)
-- [ ] Swagger UI running at `/docs`, and "Try it out" works for every endpoint
-- [ ] README and `docs/` filled in
-- [ ] [Other requirements from your instructor]
-
-### Finals
-
-- [ ] [Requirements from your instructor]
-
-## Contributing
-
-Read [CONTRIBUTING.md](CONTRIBUTING.md) for how we name branches, write commits, and review pull requests.
-
----
-
-*Academic project for System Architecture and Integration, [School], [Semester, School Year].*
+- [ ] Root `README.md` is fully filled in, and Getting Started works on a fresh clone
+- [ ] `architecture.md` diagrams match the current system
+- [ ] `data-model.md` matches the mock data in `server/src/data/`
+- [ ] `integration.md` lists every module we send data to or get data from
+- [ ] `design-system.md` matches what the UI actually uses
+- [ ] There's an ADR for each major choice (at least: backend framework and frontend framework)
+- [ ] No `[placeholders]` or template hints left
+- [ ] Instructor's handout completed (submitted separately)
