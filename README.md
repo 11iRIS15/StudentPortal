@@ -1,182 +1,185 @@
-> **📝 This README is a template.**
-> 1. Replace every `[bracketed placeholder]` with your group's information.
-> 2. Hints are hidden in comments. Open this file in your code editor (not on GitHub) to see them.
-> 3. Delete each hint once you fill in its section. **Delete this box when you're done.**
->
-> Owner: the **Documentation** member. Everyone gives input.
+# Student Portal — College Management System
 
-# [Module Name] — College Management System
-
-<!-- HINT: One sentence. What does your module do, and who is it for?
-     Example: "The Library module lets students search, borrow, and return books, and lets librarians manage the catalog." -->
-
-[One-sentence description of your module.]
+The Student Portal allows students to access their academic information and campus services, including their profile, subjects, grades, schedule, enrollment, finance, library, clinic, and school announcements.
 
 ## About the Module
 
-<!-- HINT: 2–4 sentences. What problem does this module solve? Why does the college need it? -->
-
-[Short description.]
+The Student Portal provides a centralized place for students to view important academic information and access college services. It helps organize student-related information into separate pages, making it easier for students to navigate the system. The module is designed to communicate with the other College Management System modules through REST APIs.
 
 ### Users
 
-<!-- HINT: Who uses this module and what do they do in it? Delete rows that don't apply, add rows if needed. -->
-
-| User | What they do in this module |
-|------|-----------------------------|
-| Student | [e.g., view their balance, request a clearance] |
-| Faculty | [...] |
-| Staff / Admin | [...] |
+| User          | What they do in this module 
+|---            |---
+| Student       | View their profile, subjects, grades, class schedule, enrollment information, finance records, library services, clinic                                services, and announcements. 
+| Faculty       | Access relevant student or academic information if authorized and supported by the system. 
+| Staff / Admin | Manage or provide official student-related records through the appropriate modules and APIs. 
 
 ### Features
 
-<!-- HINT: List the main features. Each feature must have at least one endpoint in server/openapi.yaml.
-     Tick a box when the feature is done: - [x] -->
+- [ ] Student login and dashboard
+- [ ] View student profile and subjects
+- [ ] View grades and class schedule
+- [ ] View enrollment and registrar information
+- [ ] View finance and payment information
+- [ ] Access library and clinic services
+- [ ] View faculty information and school announcements
 
-- [ ] [Feature 1]
-- [ ] [Feature 2]
-- [ ] [Feature 3]
+*Feature completion must be checked after implementation and testing. Each feature should have a corresponding endpoint in `server/openapi.yaml` where applicable.*
 
 ## Part of the College Management System
 
 This module is one of eight modules that together make up the College Management System.
 
-| Module | This repo |
-|--------|:---------:|
-| Landing Page | |
-| Library | |
-| Student Portal | |
-| Finance | |
-| Faculty | |
-| Clinic | |
-| Registrar | |
-| Inventory | |
-
-<!-- HINT: Put ✅ in the "This repo" column next to your module. -->
+| Module         | This repo |
+|---             |:---       |
+| Landing Page   |           |
+| Library        |           |
+| Student Portal | ✅        |
+| Finance        |           |
+| Faculty        |           |
+| Clinic         |           |
+| Registrar      |           |
+| Inventory      |           |
 
 How this module connects to the other modules: [docs/integration.md](docs/integration.md).
 
 ## Team
 
-<!-- HINT: One row per member. If your group has more than three members, add rows. Two people can share a role. -->
+| Name          | Role          | GitHub                                   |
+|---            |---            |---                                       |
+| Iris Atanante | Backend       | [@11iRIS15](https://github.com/11iRIS15) |
+| Angelica      | Frontend      | [@angelicadelatorre41-art]               |
+| Joan          | Documentation | [@joan-delvalle]                         |
 
-| Name | Role | GitHub |
-|------|------|--------|
-| [Full Name] | Backend | [@username] |
-| [Full Name] | Frontend | [@username] |
-| [Full Name] | Documentation | [@username] |
+**Roles:**
 
-**Roles:** Backend owns `server/` and the API contract. Frontend owns `client/`. Documentation owns `docs/`, this README, and the instructor's handout (the handout is submitted separately, not in this repo).
+- **Backend — Iris:** Owns `server/`, backend routes and services, mock data, and the API contract.
+- **Frontend — Angelica:** Owns `client/`, including the React interface, navigation, pages, styling, and user interactions.
+- **Documentation — Joan:** Owns `docs/`, this README, and the instructor's handout, which is submitted separately.
 
 ## Tech Stack
 
-<!-- HINT: Write the actual technology and version. Explain WHY you chose it in docs/decisions/ (an ADR). -->
+| Part                 | Technology 
+|---                   |---         
+| Frontend (`client/`) | React + Vite 
+| Backend (`server/`)  | Node.js + Express.js 
+| API documentation    | OpenAPI 3.0 + Swagger UI 
+| Database             | None yet — mock data. Planned database: to be decided. 
 
-| Part | Technology |
-|------|------------|
-| Frontend (client) | [e.g., React + Vite] |
-| Backend (server) | [e.g., FastAPI on Python 3.12] |
-| API documentation | OpenAPI 3.0 + Swagger UI |
-| Database | None yet (mock data). Planned: [e.g., PostgreSQL] |
+The frontend provides the user interface, while the backend exposes REST API endpoints. Mock data is used during the API development stage; a persistent database has not been confirmed.
 
 ## Project Structure
 
-```
+```text
 .
-├── client/            # Frontend app. See client/README.md
-├── server/            # Backend API. See server/README.md
-│   └── openapi.yaml   # API contract: the list of every endpoint
-├── docs/              # Project documentation. Start at docs/README.md
-├── CONTRIBUTING.md    # How we use Git as a group
-└── README.md          # You are here
+├── client/             # React + Vite frontend
+├── server/             # Express backend API
+│   ├── src/            # Backend source files, if using this layout
+│   └── openapi.yaml    # API contract
+├── docs/               # Project documentation
+├── CONTRIBUTING.md     # Group Git workflow
+└── README.md
 ```
+
+*Confirm the actual folder and file names in your repository before finalizing this structure.*
 
 ## Getting Started
 
-<!-- HINT: Test this section! A classmate should be able to run your project by following ONLY these steps
-     on a fresh clone. Replace the example commands with the real ones for YOUR stack. -->
-
 ### Prerequisites
 
-- [e.g., Node.js 22 or newer / Python 3.12 or newer / .NET 9 SDK]
+- Node.js and npm
 - Git
+- Visual Studio Code or another code editor
 
-### 1. Clone the repo
+### 1. Clone the Repository
 
 ```bash
-git clone [repo-url]
-cd [repo-folder]
+git clone https://github.com/11iRIS15/StudentPortal.git
+cd StudentPortal
 ```
 
-### 2. Run the server
+### 2. Run the Backend
+
+Open a terminal in the project folder:
 
 ```bash
 cd server
-[copy the env file, e.g., cp .env.example .env]
-[install, e.g., npm install  OR  pip install -r requirements.txt]
-[run, e.g., npm run dev  OR  fastapi dev src/main.py --port 8000]
+npm install
+npm run dev
 ```
 
-- API: `http://localhost:[port]/api/v1`
-- Swagger UI: `http://localhost:[port]/docs`
+The backend is expected to use port `8000`, based on the earlier project setup. These commands require a valid `package.json` with a `dev` script. If the command fails, check the scripts in `server/package.json` and follow the actual backend configuration.
 
-### 3. Run the client
+- API base URL: `http://localhost:8000/api/v1`
+- Swagger UI: `http://localhost:8000/docs`
+
+### 3. Run the Frontend
+
+Open a **second terminal** from the project root:
 
 ```bash
 cd client
-[copy the env file, e.g., cp .env.example .env]
-[install, e.g., npm install]
-[run, e.g., npm run dev]
+npm install
+npm run dev
 ```
 
-- App: `http://localhost:[port]`
+Open the local URL printed in the terminal by Vite. It is commonly `http://localhost:5173`, but the port may change if that port is already occupied.
 
-### Environment variables
+### Environment Variables
 
-<!-- HINT: List every variable from server/.env.example and client/.env.example.
-     Use example values only. Never put real passwords or keys in this file. -->
+| Variable            | Where                 | Example                        | What it's for 
+|---                  |---                    |---                             |---
+| `PORT`              | Server, if configured | `8000`                         | Port used by the API server 
+| `CORS_ORIGINS`      | Server, if configured | `http://localhost:5173`        | Frontend origins allowed to call the API 
+| `VITE_API_BASE_URL` | Client, if configured | `http://localhost:8000/api/v1` | Base URL used for API requests 
 
-| Variable | Where | Example | What it's for |
-|----------|-------|---------|---------------|
-| `PORT` | server | `8000` | Port the API runs on |
-| `CORS_ORIGINS` | server | `http://localhost:5173` | Frontend URLs allowed to call the API |
-| `VITE_API_BASE_URL` | client | `http://localhost:8000/api/v1` | Where the frontend sends API requests |
+These are suggested example variables. Confirm which variables are actually required by the server and client before adding them to `.env.example` files. Do not commit passwords, API keys, or other secrets.
 
 ## API Documentation
 
-- **Swagger UI:** `http://localhost:[port]/docs` (start the server first)
-- **API contract:** [server/openapi.yaml](server/openapi.yaml)
+- **Swagger UI:** `http://localhost:8000/docs` — start the backend first.
+- **API contract:** `server/openapi.yaml`
+
+The API is intended to provide endpoints for the health check, student profile, dashboard, enrollment, schedule, grades, finance, library, clinic, and announcements. Confirm the exact endpoint paths and HTTP methods in `server/openapi.yaml`.
 
 ## Documentation
 
-| Document | What's inside |
-|----------|---------------|
-| [Architecture](docs/architecture.md) | How the parts of the system fit together |
-| [Data Model](docs/data-model.md) | The data we store and how it's related |
-| [Integration](docs/integration.md) | How this module works with the other modules |
-| [Design System](docs/design-system.md) | Colors, fonts, components, UI rules |
-| [Decisions](docs/decisions/) | Why we chose our tools and approaches |
+| Document                               | What's inside 
+|---                                     |---
+| [Architecture](docs/architecture.md)   | How the frontend and backend fit together 
+| [Data Model](docs/data-model.md)       | Data entities and their relationships 
+| [Integration](docs/integration.md)     | How the Student Portal connects with other modules 
+| [Design System](docs/design-system.md) | Colors, fonts, components, and UI rules 
+| [Decisions](docs/decisions/)           | Reasons for technology and design choices 
+
+*Create the listed documentation files if they do not already exist.*
 
 ## Project Status
 
-<!-- HINT: Update this before each presentation. -->
-
 ### Midterm
 
-- [ ] API contract (`server/openapi.yaml`) complete and has no validation errors
-- [ ] Every endpoint in the contract works with mock data (no database yet)
-- [ ] Swagger UI running at `/docs`, and "Try it out" works for every endpoint
-- [ ] README and `docs/` filled in
-- [ ] [Other requirements from your instructor]
+- [ ] API contract (`server/openapi.yaml`) is complete and validated.
+- [ ] Every documented endpoint works with mock data.
+- [ ] Swagger UI is running at `/docs` and endpoints can be tested.
+- [ ] README and project documentation are complete.
+- [ ] Frontend pages are tested.
+- [ ] Frontend and backend integration is tested.
+- [ ] Required module connections are documented.
 
 ### Finals
 
-- [ ] [Requirements from your instructor]
+- [ ] Complete frontend–backend integration.
+- [ ] Validate and test all API endpoints.
+- [ ] Implement database storage if required by the final project specifications.
+- [ ] Implement appropriate authentication and access control if required.
+- [ ] Test the full application and prepare the final presentation.
+
+*Update these checkboxes according to the team's actual progress. Do not mark a requirement complete until it has been verified.*
 
 ## Contributing
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) for how we name branches, write commits, and review pull requests.
+Read [CONTRIBUTING.md](CONTRIBUTING.md) for the group's branch naming, commit message, and pull request rules.
 
 ---
 
-*Academic project for System Architecture and Integration, [School], [Semester, School Year].*
+*Academic project for System Architecture and Integration, [IDSC], [1ST SEMESTER, 2026-2027].*
